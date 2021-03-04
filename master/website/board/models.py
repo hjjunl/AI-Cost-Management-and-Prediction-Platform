@@ -363,61 +363,6 @@ class BVersion(models.Model):
         managed = False
         db_table = 'b_version'
 
-
-class CcItemplan(models.Model):
-    id = models.IntegerField(primary_key=True)    
-    itemplan_nm = models.CharField(max_length=50)
-    item= models.IntegerField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'cc_itemplan'
-
-class CcCostbill(models.Model):
-    id = models.IntegerField(primary_key=True)    
-    version = models.ForeignKey(BVersion, on_delete=models.CASCADE)
-    itemplan = models.ForeignKey(CcItemplan, on_delete=models.CASCADE)
-    ei_elc = models.IntegerField(blank=True, null=True)
-    ei_einv = models.IntegerField(blank=True, null=True)
-    ei_erm = models.IntegerField(blank=True, null=True)
-    ei_eoh = models.IntegerField(blank=True, null=True)
-    ei_sum = models.IntegerField(blank=True, null=True)
-    bi_blc = models.IntegerField(blank=True, null=True)
-    bi_brm = models.IntegerField(blank=True, null=True)
-    bi_idohc = models.IntegerField(blank=True, null=True)
-    bi_dohc = models.IntegerField(blank=True, null=True)
-    bi_sum = models.IntegerField(blank=True, null=True)
-    uc_ulc_sum = models.IntegerField(blank=True, null=True)
-    uc_dlc = models.IntegerField(blank=True, null=True)
-    uc_idlc = models.IntegerField(blank=True, null=True)
-    uc_srw = models.IntegerField(blank=True, null=True)
-    uc_idohc = models.IntegerField(blank=True, null=True)
-    uc_aoh_sum = models.IntegerField(blank=True, null=True)
-    uc_dohc = models.IntegerField(blank=True, null=True)
-    uc_price = models.IntegerField(blank=True, null=True)
-    uc_tsum = models.IntegerField(blank=True, null=True)
-    uc_tudc = models.IntegerField(blank=True, null=True)
-    ic_idlc = models.IntegerField(blank=True, null=True)
-    ic_alc_sum = models.IntegerField(blank=True, null=True)
-    ic_dlfc = models.IntegerField(blank=True, null=True)
-    ic_dlvc = models.IntegerField(blank=True, null=True)
-    ic_arm = models.IntegerField(blank=True, null=True)
-    ic_idohc = models.IntegerField(blank=True, null=True)
-    ic_aoh_sum = models.IntegerField(blank=True, null=True)
-    ic_ohdfe = models.IntegerField(blank=True, null=True)
-    ic_ohdfd = models.IntegerField(blank=True, null=True)
-    ic_ohdvc = models.IntegerField(blank=True, null=True)
-    ic_sum = models.IntegerField(blank=True, null=True)
-    proamt_unit = models.IntegerField(blank=True, null=True)
-    proamt_acc = models.IntegerField(blank=True, null=True)
-    st_unit = models.FloatField(blank=True, null=True)
-    st_acc = models.IntegerField(blank=True, null=True)
-    proq = models.IntegerField(blank=True, null=True)
-    ra_rm = models.IntegerField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'cc_costbill'
         
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
