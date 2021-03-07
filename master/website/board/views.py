@@ -2188,7 +2188,7 @@ def manucosttemplate_download(request):
 
     rsColumns = None
     if rsTmp:
-        strsql1 = "SHOW COLUMNS FROM cc_manucost_if"
+        strsql1 = "SHOW FULL COLUMNS FROM cc_manucost_if"
 
         cursor2 = dbCon.cursor()
         cursor2.execute(strsql1)
@@ -2202,7 +2202,7 @@ def manucosttemplate_download(request):
 
         for i in rsColumns:
             sheet_in.cell(row=1, column=idx).value = i[1]
-            sheet_in.cell(row=2, column=idx).value = i[0]
+            sheet_in.cell(row=2, column=idx).value = i[8]
             idx += 1
 
         filename = "static/datatemplates/manucost.xlsx"
@@ -2365,7 +2365,7 @@ def materialcosttemplate_download(request):
 
     rsColumns = None
     if rsTmp:
-        strsql1 = "SHOW COLUMNS FROM cc_materialcost_if"
+        strsql1 = "SHOW FULL COLUMNS FROM cc_materialcost_if"
 
         cursor2 = dbCon.cursor()
         cursor2.execute(strsql1)
@@ -2379,7 +2379,7 @@ def materialcosttemplate_download(request):
 
         for i in rsColumns:
             sheet_in.cell(row=1, column=idx).value = i[1]
-            sheet_in.cell(row=2, column=idx).value = i[0]
+            sheet_in.cell(row=2, column=idx).value = i[8]
             idx += 1
 
         filename = "static/datatemplates/materialcost.xlsx"
@@ -2539,7 +2539,7 @@ def itempermanucosttemplate_download(request):
 
     rsColumns = None
     if rsTmp:
-        strsql1 = "SHOW COLUMNS FROM cc_itempermanucost_if"
+        strsql1 = "SHOW FULL COLUMNS FROM cc_itempermanucost_if"
 
         cursor2 = dbCon.cursor()
         cursor2.execute(strsql1)
@@ -2553,7 +2553,7 @@ def itempermanucosttemplate_download(request):
 
         for i in rsColumns:
             sheet_in.cell(row=1, column=idx).value = i[1]
-            sheet_in.cell(row=2, column=idx).value = i[0]
+            sheet_in.cell(row=2, column=idx).value = i[8]
             idx += 1
 
         filename = "static/datatemplates/itempermanucost.xlsx"
@@ -2713,7 +2713,7 @@ def productcostpaymenttemplate_download(request):
 
     rsColumns = None
     if rsTmp:
-        strsql1 = "SHOW COLUMNS FROM cc_productcostpayment_if"
+        strsql1 = "SHOW FULL COLUMNS FROM cc_productcostpayment_if"
 
         cursor2 = dbCon.cursor()
         cursor2.execute(strsql1)
@@ -2727,7 +2727,7 @@ def productcostpaymenttemplate_download(request):
 
         for i in rsColumns:
             sheet_in.cell(row=1, column=idx).value = i[1]
-            sheet_in.cell(row=2, column=idx).value = i[0]
+            sheet_in.cell(row=2, column=idx).value = i[8]
             idx += 1
 
         filename = "static/datatemplates/productcostpayment.xlsx"
@@ -2851,4 +2851,18 @@ def productcostpaymentdata_upload(request):
 
 # *********************************************************************************************************************
 # 제품원가수불 코드 끝
+# *********************************************************************************************************************
+
+
+# *********************************************************************************************************************
+# costbill 코드 시작
+# *********************************************************************************************************************
+
+def cc_costbill_if(request):
+    context = {}
+
+    return render(request, 'board2/cc_costbill_if.html', context)
+
+# *********************************************************************************************************************
+# costbill 코드 끝
 # *********************************************************************************************************************
